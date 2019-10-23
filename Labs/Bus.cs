@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace Labs
 
         private int _doorsForm;
 
-        public int DoorsForm
+        private int DoorsForm
         {
             set
             {
@@ -25,7 +25,6 @@ namespace Labs
             }
             get { return _doorsForm; }
         }
-
 
         public Bus(int maxSpeed, float weight, Color mainColor, Color dopColor,
         bool doorsDraw, Doors doorsCount) : base(maxSpeed, weight, mainColor)
@@ -42,7 +41,7 @@ namespace Labs
             Pen pen = new Pen(Color.Black);
 
             Brush br = new SolidBrush(this.MainColor);
-            g.FillRectangle(br, _startPosX, _startPosY, 75, 15);
+            g.FillRectangle(br, _startPosX , _startPosY , 75, 15);
             g.DrawRectangle(pen, _startPosX, _startPosY, 75, 15);
 
 
@@ -57,13 +56,13 @@ namespace Labs
             g.FillRectangle(br, _startPosX, _startPosY + 15, 90, 20);
             g.DrawRectangle(pen, _startPosX, _startPosY + 15, 90, 20);
 
-            Brush brBrown = new SolidBrush(Color.Brown);
-            g.FillEllipse(brBrown, _startPosX, _startPosY + 30, 25, 20);
-            g.FillEllipse(brBrown, _startPosX + 70, _startPosY + 30, 25, 20);
+            Brush brBrown = new SolidBrush(Color.Brown); 
+            g.FillEllipse(brBrown, _startPosX , _startPosY + 30, 25, 20);
+            g.FillEllipse(brBrown, _startPosX + 70 , _startPosY + 30, 25, 20);
 
             if (IsDoorsDraw)
             {
-                switch (this.DoorsForm)
+                switch(DoorsForm)
                 {
                     case 1:
                         draw.DrawRectDoors(DoorsCount, g, _startPosX, _startPosY);
@@ -79,15 +78,15 @@ namespace Labs
             }
 
             Brush brBlue = new SolidBrush(Color.Blue);
-            g.FillRectangle(brBlue, _startPosX, _startPosY + 8, 10, 9);
+            g.FillRectangle(brBlue, _startPosX , _startPosY + 8, 10, 9);
             g.FillRectangle(brBlue, _startPosX + 20, _startPosY + 8, 10, 9);
             g.FillRectangle(brBlue, _startPosX + 40, _startPosY + 8, 10, 9);
             g.FillRectangle(brBlue, _startPosX + 60, _startPosY + 8, 10, 9);
 
-
+            
         }
+           
 
-
-
+        
     }
 }
