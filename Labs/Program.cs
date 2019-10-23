@@ -6,11 +6,9 @@ using System.Windows.Forms;
 
 namespace Labs
 {
-    static class Program
-    {
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
+    public delegate void busDelegate(ITransport car);
+    public static class Program
+    {
         [STAThread]
         static void Main()
         {
