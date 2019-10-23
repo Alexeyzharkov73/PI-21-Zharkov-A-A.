@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -24,7 +24,8 @@ namespace Labs
                 if (value > 0 && value < 4) _doorsForm = value;
             }
             get { return _doorsForm; }
-        }
+        }
+
 
         public Bus(int maxSpeed, float weight, Color mainColor, Color dopColor,
         bool doorsDraw, Doors doorsCount) : base(maxSpeed, weight, mainColor)
