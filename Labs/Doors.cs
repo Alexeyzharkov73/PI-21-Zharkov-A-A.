@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labs
 {
-    enum Doors
+    public enum Doors
     {
         Three,
         Four,

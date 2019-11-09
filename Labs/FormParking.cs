@@ -12,12 +12,12 @@ namespace Labs
 {
     public partial class FormParking : Form
     {
-        Parking<ITransport> parking;
+        Parking<ITransport, DoorsDraw> parking;
 
         public FormParking()
         {
             InitializeComponent();
-            parking = new Parking<ITransport>(20, pictureBoxParking.Width,
+            parking = new Parking<ITransport, DoorsDraw>(20, pictureBoxParking.Width,
                 pictureBoxParking.Height);
             Draw();
         }
@@ -26,7 +26,7 @@ namespace Labs
         {
             Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            parking.Draw(gr);
+            parking.Draw(gr, new DoorsDraw());
             pictureBoxParking.Image = bmp;
         }
 
@@ -68,7 +68,7 @@ namespace Labs
                     Graphics gr = Graphics.FromImage(bmp);
                     car.SetPosition(5, 5, pictureBoxTakeCar.Width,
                    pictureBoxTakeCar.Height);
-                    car.DrawBus(gr);
+                    car.DrawBus(gr, new DoorsDraw());
                     pictureBoxTakeCar.Image = bmp;
                 }
                 else

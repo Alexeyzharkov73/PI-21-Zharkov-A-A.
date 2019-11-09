@@ -13,6 +13,6 @@ namespace Labs
 
         void MoveTransport(Direction direction);
 
-        void DrawBus(Graphics g);
+        void DrawBus(Graphics g, DoorsDraw draw);
     }
 }

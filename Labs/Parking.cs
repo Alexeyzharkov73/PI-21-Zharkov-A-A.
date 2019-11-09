@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Labs
 {
-    public class Parking<T> where T : class, ITransport
+    public class Parking<T, D> where T : class, ITransport where D : DoorsDraw
     {
 
         private T[] _places;
@@ -18,7 +18,8 @@ namespace Labs
 
         private const int _placeSizeHeight = 80;
 
-        private const int _placeSizeWidth = 210;
+        private const int _placeSizeWidth = 210;
+
         public Parking(int sizes, int pictureWidth, int pictureHeight)
         {
             _places = new T[sizes];
@@ -30,7 +31,7 @@ namespace Labs
             }
         }
 
-        public static int operator +(Parking<T> p, T bus)
+        public static int operator +(Parking<T, D> p, T bus)
         {
             for (int i = 0; i < p._places.Length; i++)
             {
@@ -45,7 +46,7 @@ namespace Labs
             }
             return -1;
         }
-        public static T operator -(Parking<T> p, int index)
+        public static T operator -(Parking<T, D> p, int index)
          {
             if (index < 0 || index > p._places.Length)
             {
@@ -65,14 +66,14 @@ namespace Labs
             return _places[index] == null;
         }
 
-        public void Draw(Graphics g)
+        public void Draw(Graphics g, D draw)
         {
             DrawMarking(g);
             for (int i = 0; i < _places.Length; i++)
             {
                 if (!CheckFreePlace(i))
                 {
-                    _places[i].DrawBus(g);
+                    _places[i].DrawBus(g, draw);
                 }
             }
         }
@@ -90,5 +91,6 @@ namespace Labs
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
             }
         }
-    }
+    }
+
 }

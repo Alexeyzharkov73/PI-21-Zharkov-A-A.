@@ -52,7 +52,7 @@ namespace Labs
             }
         }
 
-        public override void DrawBus(Graphics g)
+        public override void DrawBus(Graphics g, DoorsDraw draw)
         {
             Pen pen = new Pen(Color.Black);
 
@@ -73,10 +73,18 @@ namespace Labs
             g.FillRectangle(brBlue, _startPosX + 60, _startPosY + 17, 10, 10);
             g.FillRectangle(brBlue, _startPosX + 80, _startPosY + 17, 10, 10);
 
-            Brush brBlack = new SolidBrush(Color.Black); // двери
-            g.FillRectangle(brBlack, _startPosX + 31, _startPosY + 35, 8, 11);
-            g.FillRectangle(brBlack, _startPosX + 51, _startPosY + 35, 8, 11);
+            draw.DrawTriangleDoors(Doors.Three, g, _startPosX, _startPosY); //Двери
 
+        }
+
+        public static Boolean operator >=(BaseBus baseBus, BaseBus secondBus)
+        {
+            return baseBus.MaxSpeed >= secondBus.MaxSpeed;
+        }
+
+        public static Boolean operator <=(BaseBus baseBus, BaseBus secondBus)
+        {
+            return baseBus.MaxSpeed <= secondBus.MaxSpeed;
         }
     }
 }

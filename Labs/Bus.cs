@@ -37,7 +37,7 @@ namespace Labs
             DoorsForm = rnd.Next(1, 4);
         }
 
-        public override void DrawBus(Graphics g)
+        public override void DrawBus(Graphics g, DoorsDraw draw)
         {
             Pen pen = new Pen(Color.Black);
 
@@ -66,13 +66,13 @@ namespace Labs
                 switch (this.DoorsForm)
                 {
                     case 1:
-                        new DoorsDraw().DrawRectDoors(DoorsCount, g, _startPosX, _startPosY);
+                        draw.DrawRectDoors(DoorsCount, g, _startPosX, _startPosY);
                         break;
                     case 2:
-                        new DoorsDraw().DrawTriangleDoors(DoorsCount, g, _startPosX, _startPosY);
+                        draw.DrawTriangleDoors(DoorsCount, g, _startPosX, _startPosY);
                         break;
                     case 3:
-                        new DoorsDraw().DrawElipseDoors(DoorsCount, g, _startPosX, _startPosY);
+                        draw.DrawElipseDoors(DoorsCount, g, _startPosX, _startPosY);
                         break;
                 }
 
