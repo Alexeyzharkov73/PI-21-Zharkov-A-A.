@@ -32,5 +32,9 @@ namespace Labs
         }
         public abstract void DrawBus(Graphics g, DoorsDraw draw);
         public abstract void MoveTransport(Direction direction);
+        public void SetMainColor(Color color)
+        {
+            MainColor = color;
+        }
     }
 }
