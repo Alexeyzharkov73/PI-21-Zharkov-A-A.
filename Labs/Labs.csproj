@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseBus.cs" />
     <Compile Include="Bus.cs" />
+    <Compile Include="IDoors.cs" />
+    <Compile Include="Vehicle.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Doors.cs" />
     <Compile Include="DoorsDraw.cs" />
@@ -56,6 +59,7 @@
     <Compile Include="FormBus.Designer.cs">
       <DependentUpon>FormBus.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITransport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormBus.resx">

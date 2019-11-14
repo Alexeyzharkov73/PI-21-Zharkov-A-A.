@@ -12,7 +12,7 @@ namespace Labs
 {
     public partial class FormBus : Form
     {
-        private Bus bus;
+        private ITransport bus;
 
         public FormBus()
         {
@@ -30,8 +30,7 @@ namespace Labs
         private void createBusButton_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            bus = new Bus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red,
-                 Color.Black, true, false, Doors.Five);
+            bus = new BaseBus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red);
             bus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBus.Width,
                 pictureBoxBus.Height);
             Draw();
@@ -58,5 +57,14 @@ namespace Labs
             Draw();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            bus = new Bus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red,
+                 Color.Red, true, Doors.Five);
+            bus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBus.Width,
+                pictureBoxBus.Height);
+            Draw();
+        }
     }
 }
