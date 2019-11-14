@@ -31,7 +31,7 @@ namespace Labs
         {
             Random rnd = new Random();
             bus = new Bus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red,
-                 Color.Black, true, Doors.Five);
+                 Color.Black, true, false, Doors.Five);
             bus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBus.Width,
                 pictureBoxBus.Height);
             Draw();

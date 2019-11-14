@@ -31,10 +31,12 @@ namespace Labs
 
         public Color DopColor { private set; get; }
 
+        public bool IsBigBus { private set; get; }
+
         public bool IsDoorsDraw { private set; get; }
 
         public Bus(int maxSpeed, float weight, Color mainColor, Color dopColor,
-        bool doorsDraw, Doors doorsCount)
+        bool doorsDraw, bool isBigBus, Doors doorsCount)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
@@ -42,6 +44,7 @@ namespace Labs
             DopColor = dopColor;
             IsDoorsDraw = doorsDraw;
             DoorsCount = doorsCount;
+            IsBigBus = isBigBus;
         }
 
         public void SetPosition(int x, int y, int width, int height)
@@ -86,17 +89,39 @@ namespace Labs
 
         public void DrawBus(Graphics g)
         {
-            Pen pen = new Pen(Color.Black);
+            if(this.IsBigBus)
+            {
+                Pen pen = new Pen(Color.Black);
 
-            Brush brRed = new SolidBrush(Color.Red);
-            g.FillRectangle(brRed, _startPosX , _startPosY , 75, 15);
-            g.FillRectangle(brRed, _startPosX, _startPosY + 15, 90, 20);
-            g.DrawRectangle(pen, _startPosX, _startPosY, 75, 15);
-            g.DrawRectangle(pen, _startPosX, _startPosY + 15, 90, 20);
+                Brush brRed = new SolidBrush(Color.Red);
+                g.FillRectangle(brRed, _startPosX, _startPosY, 75, 15);
+                g.FillRectangle(brRed, _startPosX, _startPosY + 15, 90, 20);
+                g.DrawRectangle(pen, _startPosX, _startPosY, 75, 15);
+                g.DrawRectangle(pen, _startPosX, _startPosY + 15, 90, 20);
+                Brush brBlue = new SolidBrush(Color.Blue);
+                g.FillRectangle(brBlue, _startPosX, _startPosY + 8, 10, 9);
+                g.FillRectangle(brBlue, _startPosX + 20, _startPosY + 8, 10, 9);
+                g.FillRectangle(brBlue, _startPosX + 40, _startPosY + 8, 10, 9);
+                g.FillRectangle(brBlue, _startPosX + 60, _startPosY + 8, 10, 9);
 
-            Brush brBrown = new SolidBrush(Color.Brown); 
-            g.FillEllipse(brBrown, _startPosX , _startPosY + 30, 25, 20);
-            g.FillEllipse(brBrown, _startPosX + 70 , _startPosY + 30, 25, 20);
+                Brush brBrown = new SolidBrush(Color.Brown);
+                g.FillEllipse(brBrown, _startPosX, _startPosY + 30, 25, 20);
+                g.FillEllipse(brBrown, _startPosX + 70, _startPosY + 30, 25, 20);
+
+            }
+            else
+            {
+                Pen pen = new Pen(Color.Black);
+
+                Brush br = new SolidBrush(this.MainColor); // кузов 
+                g.FillRectangle(br, _startPosX, _startPosY + 15, 90, 30);
+                g.DrawRectangle(pen, _startPosX, _startPosY + 15, 90, 30);
+                g.FillRectangle(br, _startPosX + 90, _startPosY + 30, 13, 15);
+
+                Brush brBrown = new SolidBrush(Color.Brown);
+                g.FillEllipse(brBrown, _startPosX, _startPosY + 40, 25, 20);
+                g.FillEllipse(brBrown, _startPosX + 70, _startPosY + 40, 25, 20);
+            }
 
             if (IsDoorsDraw)
             {
@@ -105,13 +130,8 @@ namespace Labs
 
             }
 
-            Brush brBlue = new SolidBrush(Color.Blue);
-            g.FillRectangle(brBlue, _startPosX , _startPosY + 8, 10, 9);
-            g.FillRectangle(brBlue, _startPosX + 20, _startPosY + 8, 10, 9);
-            g.FillRectangle(brBlue, _startPosX + 40, _startPosY + 8, 10, 9);
-            g.FillRectangle(brBlue, _startPosX + 60, _startPosY + 8, 10, 9);
 
-            
+
         }
            
 
