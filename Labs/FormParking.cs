@@ -12,46 +12,77 @@ namespace Labs
 {
     public partial class FormParking : Form
     {
-        Parking<ITransport, DoorsDraw> parking;
+        MultiLevelParking parking;
+
+        private const int countLevel = 7;
+        private HashSet<ITransport> secondParking;
 
         public FormParking()
         {
             InitializeComponent();
-            parking = new Parking<ITransport, DoorsDraw>(20, pictureBoxParking.Width,
-                pictureBoxParking.Height);
+            secondParking = new HashSet<ITransport>();
+            parking = new MultiLevelParking(countLevel, pictureBoxParking.Width,
+           pictureBoxParking.Height);
+
+            for (int i = 0; i < countLevel; i++)
+            {
+                listBoxLevels.Items.Add("Уровень " + (i + 1));
+            }
+            listBoxLevels.SelectedIndex = 0;
             Draw();
         }
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            parking.Draw(gr, new DoorsDraw());
-            pictureBoxParking.Image = bmp;
+            if (listBoxLevels.SelectedIndex > -1)
+            {
+                Bitmap bmp = new Bitmap(pictureBoxParking.Width,
+                pictureBoxParking.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                parking[listBoxLevels.SelectedIndex].Draw(gr, new DoorsDraw());
+                pictureBoxParking.Image = bmp;
+            }
         }
 
         private void createBusButton_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxLevels.SelectedIndex > -1)
             {
-                var bus = new BaseBus(100, 1000, dialog.Color);
-                int place = parking + bus;
-                Draw();
-            }
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var bus = new BaseBus(100, 1000, dialog.Color);
+                    int place = parking[listBoxLevels.SelectedIndex] + bus;
+                    if (place == -1)
+                    {
+                        MessageBox.Show("Нет свободных мест", "Ошибка",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    Draw();
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxLevels.SelectedIndex > -1)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var bus = new Bus(100, 1000, dialog.Color, dialogDop.Color, true, Doors.Five);
-                    int place = parking + bus;
-                    Draw();
+                    ColorDialog dialogDop = new ColorDialog();
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
+                    {
+                        var bus = new Bus(100, 1000, dialog.Color,
+                       dialogDop.Color, true, Doors.Five);
+                        int place = parking[listBoxLevels.SelectedIndex] + bus;
+                        if (place == -1)
+                        {
+                            MessageBox.Show("Нет свободных мест", "Ошибка",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        Draw();
+                    }
                 }
             }
         }
@@ -60,15 +91,16 @@ namespace Labs
         {
             if (maskedTextBox.Text != "")
             {
-                var car = parking - Convert.ToInt32(maskedTextBox.Text);
-                if (car != null)
+                var bus = parking[listBoxLevels.SelectedIndex, Convert.ToInt32(maskedTextBox.Text)];
+                if (bus != null)
                 {
+                    secondParking.Add(bus);
                     Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
                    pictureBoxTakeCar.Height);
                     Graphics gr = Graphics.FromImage(bmp);
-                    car.SetPosition(5, 5, pictureBoxTakeCar.Width,
+                    bus.SetPosition(5, 5, pictureBoxTakeCar.Width,
                    pictureBoxTakeCar.Height);
-                    car.DrawBus(gr, new DoorsDraw());
+                    bus.DrawBus(gr, new DoorsDraw());
                     pictureBoxTakeCar.Image = bmp;
                 }
                 else
@@ -79,6 +111,10 @@ namespace Labs
                 }
                 Draw();
             }
+        }
+        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="BaseBus.cs" />
     <Compile Include="Bus.cs" />
     <Compile Include="IDoors.cs" />
+    <Compile Include="MultiLevelParking.cs" />
     <Compile Include="Parking.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="Direction.cs" />

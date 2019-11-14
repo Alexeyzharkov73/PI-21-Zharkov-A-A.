@@ -32,10 +32,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBoxTakeCar = new System.Windows.Forms.PictureBox();
-            this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
@@ -52,7 +53,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(806, 12);
+            this.button1.Location = new System.Drawing.Point(806, 160);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 43);
             this.button1.TabIndex = 1;
@@ -62,7 +63,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(806, 61);
+            this.button2.Location = new System.Drawing.Point(806, 220);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 23);
             this.button2.TabIndex = 2;
@@ -82,6 +83,14 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Take bus";
+            // 
+            // maskedTextBox
+            // 
+            this.maskedTextBox.Location = new System.Drawing.Point(81, 19);
+            this.maskedTextBox.Mask = "00";
+            this.maskedTextBox.Name = "maskedTextBox";
+            this.maskedTextBox.Size = new System.Drawing.Size(42, 20);
+            this.maskedTextBox.TabIndex = 4;
             // 
             // label1
             // 
@@ -110,19 +119,21 @@
             this.pictureBoxTakeCar.TabIndex = 0;
             this.pictureBoxTakeCar.TabStop = false;
             // 
-            // maskedTextBox
+            // listBoxLevels
             // 
-            this.maskedTextBox.Location = new System.Drawing.Point(81, 19);
-            this.maskedTextBox.Mask = "00";
-            this.maskedTextBox.Name = "maskedTextBox";
-            this.maskedTextBox.Size = new System.Drawing.Size(42, 20);
-            this.maskedTextBox.TabIndex = 4;
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.Location = new System.Drawing.Point(785, 12);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(120, 134);
+            this.listBoxLevels.TabIndex = 4;
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
             // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 485);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -147,6 +158,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBoxTakeCar;
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
+        private System.Windows.Forms.ListBox listBoxLevels;
     }
 }
 
