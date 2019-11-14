@@ -30,7 +30,7 @@ namespace Labs
             _pictureWidth = width;
             _pictureHeight = height;
         }
-        public abstract void DrawBus(Graphics g);
+        public abstract void DrawBus(Graphics g, DoorsDraw draw);
         public abstract void MoveTransport(Direction direction);
     }
 }

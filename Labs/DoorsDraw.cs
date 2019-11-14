@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Labs
 {
-    class DoorsDraw : IDoors
+    public class DoorsDraw : IDoors
     {
         public void DrawElipseDoors(Doors doors, Graphics g, float x, float y)
         {

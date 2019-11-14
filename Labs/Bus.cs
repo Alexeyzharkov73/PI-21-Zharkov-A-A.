@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -24,7 +24,8 @@ namespace Labs
                 if (value > 0 && value < 4) _doorsForm = value;
             }
             get { return _doorsForm; }
-        }
+        }
+
 
         public Bus(int maxSpeed, float weight, Color mainColor, Color dopColor,
         bool doorsDraw, Doors doorsCount) : base(maxSpeed, weight, mainColor)
@@ -36,7 +37,7 @@ namespace Labs
             DoorsForm = rnd.Next(1, 4);
         }
 
-        public override void DrawBus(Graphics g)
+        public override void DrawBus(Graphics g, DoorsDraw draw)
         {
             Pen pen = new Pen(Color.Black);
 
@@ -65,13 +66,13 @@ namespace Labs
                 switch (this.DoorsForm)
                 {
                     case 1:
-                        new DoorsDraw().DrawRectDoors(DoorsCount, g, _startPosX, _startPosY);
+                        draw.DrawRectDoors(DoorsCount, g, _startPosX, _startPosY);
                         break;
                     case 2:
-                        new DoorsDraw().DrawTriangleDoors(DoorsCount, g, _startPosX, _startPosY);
+                        draw.DrawTriangleDoors(DoorsCount, g, _startPosX, _startPosY);
                         break;
                     case 3:
-                        new DoorsDraw().DrawElipseDoors(DoorsCount, g, _startPosX, _startPosY);
+                        draw.DrawElipseDoors(DoorsCount, g, _startPosX, _startPosY);
                         break;
                 }
 

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Labs
 {
-    interface ITransport
+    public interface ITransport
     {
         void SetPosition(int x, int y, int width, int height);
 
         void MoveTransport(Direction direction);
 
-        void DrawBus(Graphics g);
+        void DrawBus(Graphics g, DoorsDraw draw);
     }
 }
