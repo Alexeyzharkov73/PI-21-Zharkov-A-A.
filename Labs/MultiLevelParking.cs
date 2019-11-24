@@ -67,19 +67,23 @@ namespace Labs
                     sw.WriteLine("Level");
                     for (int i = 0; i < countPlaces; i++)
                     {
-                        var car = level[i];
-                        if (car != null)
+                        try
                         {
-                            if (car.GetType().Name == "BaseBus")
+                            var car = level[i];
+                            if (car != null)
                             {
-                                sw.Write(i + ":BaseBus:");
+                                if (car.GetType().Name == "BaseBus")
+                                {
+                                    sw.Write(i + ":BaseBus:");
+                                }
+                                if (car.GetType().Name == "Bus")
+                                {
+                                    sw.Write(i + ":Bus:");
+                                }
+                                sw.WriteLine(car);
                             }
-                            if (car.GetType().Name == "Bus")
-                            {
-                                sw.Write(i + ":Bus:");
-                            }
-                            sw.WriteLine(car);
                         }
+                        finally { }
                     }
                 }
                 return true;
@@ -90,8 +94,7 @@ namespace Labs
         {
             if (!File.Exists(filename))
             {
-                return false;
-            }
+                throw new FileNotFoundException();            }
             string buffer = "";
             using (StreamReader sr = new StreamReader(filename))
             {
@@ -106,7 +109,8 @@ namespace Labs
                 }
                 else
                 {
-                    return false;
+                    //если нет такой записи, то это не те данные
+                    throw new Exception("Неверный формат файла");
                 }
                 int counter = -1;
                 ITransport bus = null;
