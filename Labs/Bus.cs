@@ -36,6 +36,20 @@ namespace Labs
             DoorsForm = rnd.Next(1, 4);
         }
 
+        public Bus(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 6)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                IsDoorsDraw = Convert.ToBoolean(strs[4]);
+                DoorsForm = Convert.ToInt32(strs[5]);
+            }
+        }
+
         public override void DrawBus(Graphics g, DoorsDraw draw)
         {
             Pen pen = new Pen(Color.Black);
@@ -45,7 +59,7 @@ namespace Labs
             g.DrawRectangle(pen, _startPosX, _startPosY, 75, 15);
 
 
-
+            
             g.FillRectangle(br, _startPosX + 60, _startPosY + 17, 10, 10);
 
 
@@ -91,5 +105,9 @@ namespace Labs
             DopColor = color;
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + IsDoorsDraw + ";" + DoorsForm;
+        }
     }
 }

@@ -30,20 +30,20 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelBaseBus = new System.Windows.Forms.Label();
             this.labelBus = new System.Windows.Forms.Label();
+            this.labelBaseBus = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelBaseColor = new System.Windows.Forms.Label();
             this.labelMainColor = new System.Windows.Forms.Label();
+            this.labelBaseColor = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panelBlack = new System.Windows.Forms.Panel();
-            this.panelWhite = new System.Windows.Forms.Panel();
-            this.panelGreen = new System.Windows.Forms.Panel();
-            this.panelRed = new System.Windows.Forms.Panel();
-            this.panelGray = new System.Windows.Forms.Panel();
-            this.panelBlue = new System.Windows.Forms.Panel();
-            this.panelGold = new System.Windows.Forms.Panel();
             this.panelOrange = new System.Windows.Forms.Panel();
+            this.panelGold = new System.Windows.Forms.Panel();
+            this.panelBlue = new System.Windows.Forms.Panel();
+            this.panelGray = new System.Windows.Forms.Panel();
+            this.panelRed = new System.Windows.Forms.Panel();
+            this.panelGreen = new System.Windows.Forms.Panel();
+            this.panelWhite = new System.Windows.Forms.Panel();
+            this.panelBlack = new System.Windows.Forms.Panel();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -72,18 +72,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bus type";
             // 
-            // labelBaseBus
-            // 
-            this.labelBaseBus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelBaseBus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelBaseBus.Location = new System.Drawing.Point(29, 20);
-            this.labelBaseBus.Name = "labelBaseBus";
-            this.labelBaseBus.Size = new System.Drawing.Size(91, 31);
-            this.labelBaseBus.TabIndex = 0;
-            this.labelBaseBus.Text = "BaseBus";
-            this.labelBaseBus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelBaseBus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelBaseBus_MouseDown);
-            // 
             // labelBus
             // 
             this.labelBus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -95,6 +83,18 @@
             this.labelBus.Text = "Bus";
             this.labelBus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelBus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelBus_MouseDown);
+            // 
+            // labelBaseBus
+            // 
+            this.labelBaseBus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelBaseBus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelBaseBus.Location = new System.Drawing.Point(29, 20);
+            this.labelBaseBus.Name = "labelBaseBus";
+            this.labelBaseBus.Size = new System.Drawing.Size(91, 31);
+            this.labelBaseBus.TabIndex = 0;
+            this.labelBaseBus.Text = "BaseBus";
+            this.labelBaseBus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelBaseBus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelBaseBus_MouseDown);
             // 
             // panel1
             // 
@@ -110,20 +110,6 @@
             this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel1_DragDrop);
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel1_DragEnter);
             // 
-            // labelBaseColor
-            // 
-            this.labelBaseColor.AllowDrop = true;
-            this.labelBaseColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelBaseColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelBaseColor.Location = new System.Drawing.Point(22, 109);
-            this.labelBaseColor.Name = "labelBaseColor";
-            this.labelBaseColor.Size = new System.Drawing.Size(151, 24);
-            this.labelBaseColor.TabIndex = 1;
-            this.labelBaseColor.Text = "Base Color";
-            this.labelBaseColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelBaseColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelBaseColor_DragDrop);
-            this.labelBaseColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelBaseColor_DragEnter);
-            // 
             // labelMainColor
             // 
             this.labelMainColor.AllowDrop = true;
@@ -137,6 +123,20 @@
             this.labelMainColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelMainColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragDrop);
             this.labelMainColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelBaseColor_DragEnter);
+            // 
+            // labelBaseColor
+            // 
+            this.labelBaseColor.AllowDrop = true;
+            this.labelBaseColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelBaseColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelBaseColor.Location = new System.Drawing.Point(22, 109);
+            this.labelBaseColor.Name = "labelBaseColor";
+            this.labelBaseColor.Size = new System.Drawing.Size(151, 24);
+            this.labelBaseColor.TabIndex = 1;
+            this.labelBaseColor.Text = "Base Color";
+            this.labelBaseColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelBaseColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelBaseColor_DragDrop);
+            this.labelBaseColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelBaseColor_DragEnter);
             // 
             // groupBox2
             // 
@@ -155,45 +155,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Colors";
             // 
-            // panelBlack
+            // panelOrange
             // 
-            this.panelBlack.BackColor = System.Drawing.Color.Black;
-            this.panelBlack.Location = new System.Drawing.Point(7, 19);
-            this.panelBlack.Name = "panelBlack";
-            this.panelBlack.Size = new System.Drawing.Size(37, 32);
-            this.panelBlack.TabIndex = 0;
+            this.panelOrange.BackColor = System.Drawing.Color.Orange;
+            this.panelOrange.Location = new System.Drawing.Point(61, 155);
+            this.panelOrange.Name = "panelOrange";
+            this.panelOrange.Size = new System.Drawing.Size(37, 32);
+            this.panelOrange.TabIndex = 7;
             // 
-            // panelWhite
+            // panelGold
             // 
-            this.panelWhite.BackColor = System.Drawing.Color.White;
-            this.panelWhite.Location = new System.Drawing.Point(61, 19);
-            this.panelWhite.Name = "panelWhite";
-            this.panelWhite.Size = new System.Drawing.Size(37, 32);
-            this.panelWhite.TabIndex = 1;
-            // 
-            // panelGreen
-            // 
-            this.panelGreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.panelGreen.Location = new System.Drawing.Point(7, 64);
-            this.panelGreen.Name = "panelGreen";
-            this.panelGreen.Size = new System.Drawing.Size(37, 32);
-            this.panelGreen.TabIndex = 2;
-            // 
-            // panelRed
-            // 
-            this.panelRed.BackColor = System.Drawing.Color.Red;
-            this.panelRed.Location = new System.Drawing.Point(7, 110);
-            this.panelRed.Name = "panelRed";
-            this.panelRed.Size = new System.Drawing.Size(37, 32);
-            this.panelRed.TabIndex = 3;
-            // 
-            // panelGray
-            // 
-            this.panelGray.BackColor = System.Drawing.Color.Gray;
-            this.panelGray.Location = new System.Drawing.Point(7, 155);
-            this.panelGray.Name = "panelGray";
-            this.panelGray.Size = new System.Drawing.Size(37, 32);
-            this.panelGray.TabIndex = 4;
+            this.panelGold.BackColor = System.Drawing.Color.Yellow;
+            this.panelGold.Location = new System.Drawing.Point(61, 110);
+            this.panelGold.Name = "panelGold";
+            this.panelGold.Size = new System.Drawing.Size(37, 32);
+            this.panelGold.TabIndex = 6;
             // 
             // panelBlue
             // 
@@ -203,21 +179,45 @@
             this.panelBlue.Size = new System.Drawing.Size(37, 32);
             this.panelBlue.TabIndex = 5;
             // 
-            // panelGold
+            // panelGray
             // 
-            this.panelGold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panelGold.Location = new System.Drawing.Point(61, 110);
-            this.panelGold.Name = "panelGold";
-            this.panelGold.Size = new System.Drawing.Size(37, 32);
-            this.panelGold.TabIndex = 6;
+            this.panelGray.BackColor = System.Drawing.Color.Gray;
+            this.panelGray.Location = new System.Drawing.Point(7, 155);
+            this.panelGray.Name = "panelGray";
+            this.panelGray.Size = new System.Drawing.Size(37, 32);
+            this.panelGray.TabIndex = 4;
             // 
-            // panelOrange
+            // panelRed
             // 
-            this.panelOrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panelOrange.Location = new System.Drawing.Point(61, 155);
-            this.panelOrange.Name = "panelOrange";
-            this.panelOrange.Size = new System.Drawing.Size(37, 32);
-            this.panelOrange.TabIndex = 7;
+            this.panelRed.BackColor = System.Drawing.Color.Red;
+            this.panelRed.Location = new System.Drawing.Point(7, 110);
+            this.panelRed.Name = "panelRed";
+            this.panelRed.Size = new System.Drawing.Size(37, 32);
+            this.panelRed.TabIndex = 3;
+            // 
+            // panelGreen
+            // 
+            this.panelGreen.BackColor = System.Drawing.Color.Lime;
+            this.panelGreen.Location = new System.Drawing.Point(7, 64);
+            this.panelGreen.Name = "panelGreen";
+            this.panelGreen.Size = new System.Drawing.Size(37, 32);
+            this.panelGreen.TabIndex = 2;
+            // 
+            // panelWhite
+            // 
+            this.panelWhite.BackColor = System.Drawing.Color.White;
+            this.panelWhite.Location = new System.Drawing.Point(61, 19);
+            this.panelWhite.Name = "panelWhite";
+            this.panelWhite.Size = new System.Drawing.Size(37, 32);
+            this.panelWhite.TabIndex = 1;
+            // 
+            // panelBlack
+            // 
+            this.panelBlack.BackColor = System.Drawing.Color.Black;
+            this.panelBlack.Location = new System.Drawing.Point(7, 19);
+            this.panelBlack.Name = "panelBlack";
+            this.panelBlack.Size = new System.Drawing.Size(37, 32);
+            this.panelBlack.TabIndex = 0;
             // 
             // buttonCreate
             // 
