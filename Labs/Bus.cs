@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Labs
 {
-    class Bus : BaseBus
+    class Bus : BaseBus, IComparable<Bus>, IEquatable<Bus>
     {
         private Doors DoorsCount;
 
@@ -55,11 +55,11 @@ namespace Labs
             Pen pen = new Pen(Color.Black);
 
             Brush br = new SolidBrush(this.MainColor);
-            g.FillRectangle(br, _startPosX , _startPosY , 75, 15);
+            g.FillRectangle(br, _startPosX, _startPosY, 75, 15);
             g.DrawRectangle(pen, _startPosX, _startPosY, 75, 15);
 
 
-            
+
             g.FillRectangle(br, _startPosX + 60, _startPosY + 17, 10, 10);
 
 
@@ -70,13 +70,13 @@ namespace Labs
             g.FillRectangle(br, _startPosX, _startPosY + 15, 90, 20);
             g.DrawRectangle(pen, _startPosX, _startPosY + 15, 90, 20);
 
-            Brush brBrown = new SolidBrush(Color.Brown); 
-            g.FillEllipse(brBrown, _startPosX , _startPosY + 30, 25, 20);
-            g.FillEllipse(brBrown, _startPosX + 70 , _startPosY + 30, 25, 20);
+            Brush brBrown = new SolidBrush(Color.Brown);
+            g.FillEllipse(brBrown, _startPosX, _startPosY + 30, 25, 20);
+            g.FillEllipse(brBrown, _startPosX + 70, _startPosY + 30, 25, 20);
 
             if (IsDoorsDraw)
             {
-                switch(DoorsForm)
+                switch (DoorsForm)
                 {
                     case 1:
                         draw.DrawRectDoors(DoorsCount, g, _startPosX, _startPosY);
@@ -92,12 +92,12 @@ namespace Labs
             }
 
             Brush brBlue = new SolidBrush(Color.Blue);
-            g.FillRectangle(brBlue, _startPosX , _startPosY + 8, 10, 9);
+            g.FillRectangle(brBlue, _startPosX, _startPosY + 8, 10, 9);
             g.FillRectangle(brBlue, _startPosX + 20, _startPosY + 8, 10, 9);
             g.FillRectangle(brBlue, _startPosX + 40, _startPosY + 8, 10, 9);
             g.FillRectangle(brBlue, _startPosX + 60, _startPosY + 8, 10, 9);
 
-            
+
         }
 
         public void SetDopColor(Color color)
@@ -108,6 +108,67 @@ namespace Labs
         public override string ToString()
         {
             return base.ToString() + ";" + DopColor.Name + ";" + IsDoorsDraw + ";" + DoorsForm;
+        }
+
+        public int CompareTo(Bus other)
+        {
+            var res = (this is BaseBus).CompareTo(other is BaseBus);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (IsDoorsDraw != other.IsDoorsDraw)
+            {
+                return IsDoorsDraw.CompareTo(other.IsDoorsDraw);
+            }
+            return 0;
+        }
+
+        public bool Equals(Bus other)
+        {
+            var res = (this as BaseBus).Equals(other as BaseBus);
+            if (!res)
+            {
+                return res;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (IsDoorsDraw != other.IsDoorsDraw)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Bus busObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(busObj);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
